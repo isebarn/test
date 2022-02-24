@@ -78,7 +78,7 @@ export default {
   methods: {
     downloadCSV () {
       this.$axios({
-        url: 'http://127.0.0.1:5000/csv_export/',
+        url: process.env.AXIOS_CSV_EXPORT,
         method: 'GET',
         responseType: 'blob',
         params: {

@@ -6,7 +6,8 @@ export default {
   env: {
     AXIOS_API: process.env.AXIOS_API,
     AXIOS_ADMIN_OPERATIONS: process.env.AXIOS_ADMIN_OPERATIONS,
-    AXIOS_NURSE_OPERATIONS: process.env.AXIOS_NURSE_OPERATIONS
+    AXIOS_NURSE_OPERATIONS: process.env.AXIOS_NURSE_OPERATIONS,
+    AXIOS_CSV_EXPORT: process.env.AXIOS_CSV_EXPORT
   },
 
   ssr: true,
