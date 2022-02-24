@@ -31,7 +31,7 @@ export default {
   computed: {
 
     image () {
-      return process.env.NURSE_OPERATIONS + `image/${this.user.sub}`
+      return process.env.AXIOS_NURSE_OPERATIONS + `image/${this.user.sub}`
     }
   },
 
