@@ -31,7 +31,7 @@ export default {
   computed: {
 
     image () {
-      return 'http://127.0.0.1:5000/nurse_operations/image/' + this.user.sub
+      return process.env.NURSE_OPERATIONS + `image/${this.user.sub}`
     }
   },
 

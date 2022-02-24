@@ -1,62 +1,32 @@
 <template>
-  <v-container>
-    <v-tabs
-      v-model="tab"
-      background-color="deep-purple accent-4"
-      centered
-      dark
-      icons-and-text
-    >
-      <v-tabs-slider />
+  <v-container align-center justify-center>
+    <hospitalCard v-if="hospital" />
+    <contractTable v-if="hospital" />
 
-      <v-tab href="#tab-0">
-        Users
-        <v-icon>mdi-account-details-outline</v-icon>
-      </v-tab>
-
-      <v-tab href="#tab-1">
-        Create user
-        <v-icon>mdi-account-plus</v-icon>
-      </v-tab>
-
-      <v-tab href="#tab-2">
-        Contract user
-        <v-icon>mdi-card-account-details</v-icon>
-      </v-tab>
-
-      <v-tab href="#tab-3">
-        Create contract
-        <v-icon>mdi-file-document-edit</v-icon>
-      </v-tab>
-    </v-tabs>
-
-    <v-tabs-items v-model="tab">
-      <v-tab-item v-for="(item, i) in tabs" :key="i" :value="'tab-' + i">
-        <component :is="item" />
-      </v-tab-item>
-    </v-tabs-items>
+    <weekReport v-if="hospital" />
+    <hospitalList v-else />
   </v-container>
 </template>
 
 <script>
-import userTable from '../components/tables/users'
-import createUser from '../components/create/user'
-import userWithContract from '../components/create/userWithContract'
-import contract from '../components/create/contract'
+import { mapFields } from 'vuex-map-fields'
+import hospitalList from '../components/lists/hospitals'
+import hospitalCard from '../components/overviews/hospital'
+import contractTable from '../components/tables/contracts'
+
+import weekReport from '../components/reports/weekly'
+
 export default {
-
   components: {
-    userTable,
-    createUser,
-    userWithContract,
-    contract
-  },
+    hospitalList,
+    hospitalCard,
+    contractTable,
 
-  data () {
-    return {
-      tab: null,
-      tabs: [userTable, createUser, userWithContract, contract]
-    }
+    weekReport
+  },
+  computed: {
+    ...mapFields('hospitals', ['hospital'])
   }
+
 }
 </script>
