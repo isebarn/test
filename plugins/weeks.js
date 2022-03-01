@@ -10,7 +10,6 @@ function getWeekPeriodsInYear (app, year) {
 
   for (let weekNumber = 1; weekNumber < weeksInYear + 1; weekNumber++) {
     let endOfWeek = app.$moment(currentDay).add(daysToAdd, 'days')
-
     if (app.$moment(endOfWeek).year() !== year) {
       endOfWeek = lastDay
     }
