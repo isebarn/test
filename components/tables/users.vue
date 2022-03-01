@@ -23,7 +23,7 @@
       </template>
 
       <template #default="props">
-        <v-container v-for="user in props.items" :key="user.sub" @click="setUser(user)">
+        <v-container v-for="user in props.items" :key="user.sub" @click="select(user)">
           <user-card :user="user" />
         </v-container>
       </template>
@@ -56,7 +56,12 @@ export default {
 
   methods: {
     ...mapActions('users', ['fetchUsers']),
-    ...mapActions('user', ['setUser'])
+    ...mapActions('user', ['setUser']),
+
+    select (user) {
+      this.setUser(user)
+      this.$router.push('user')
+    }
   }
 }
 </script>

@@ -37,7 +37,7 @@ export const getters = {
 
 export const actions = {
   async getTimecardsForContract ({ commit }, contract) {
-    const timecards = await this.$axios.$get('timecards', { params: { contract: contract.id } })
+    const timecards = await this.$api.$get('timecards', { params: { contract: contract.id } })
     commit('timecards', timecards)
   },
 
@@ -45,7 +45,7 @@ export const actions = {
     reset()
     commit('user', user)
 
-    const contracts = await this.$axios.$get('contracts', { params: { user: user.sub } })
+    const contracts = await this.$api.$get('contracts', { params: { user: user.sub } })
     commit('contracts', contracts)
   }
 }
