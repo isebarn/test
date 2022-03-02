@@ -46,6 +46,7 @@ export const actions = {
         }
       })
       image = await this.$admin_operations.$put(`create_user_image/${user.sub}`, formData)
+      return image
     }
   }
 }
