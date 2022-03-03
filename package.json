@@ -22,7 +22,9 @@
     "vuejs-weekpicker": "^0.3.2",
     "vuetify": "^2.6.1",
     "vuex-map-fields": "^1.4.1",
-    "webpack": "^4.46.0"
+    "webpack": "^4.46.0",
+    "chart.js": "^2.9.3",
+    "vue-chartjs": "^3.5.0"    
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.3",
