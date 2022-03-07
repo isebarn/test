@@ -1,7 +1,10 @@
 <template>
   <section>
     <div class="chart">
-      <LineChart :data="data" :options="options" :height="400" />
+      <LineChart :data="timecardImageUsage" :options="options" :height="400" />
+    </div>
+    <div class="chart">
+      <LineChart :data="dataEntryUsageType" :options="options" :height="400" />
     </div>
   </section>
 </template>
@@ -13,7 +16,8 @@ export default {
 
   data () {
     return {
-      data: [],
+      timecardImageUsage: [],
+      dataEntryUsageType: [],
       options: {
         responsive: true,
         maintainAspectRatio: false,
@@ -29,8 +33,11 @@ export default {
   },
 
   async fetch () {
-    const data = await this.$charts.$get('timecard_image_usage')
-    this.data = data
+    const timecardImageUsage = await this.$charts.$get('timecard_image_usage')
+    this.timecardImageUsage = timecardImageUsage
+
+    const dataEntryUsageType = await this.$charts.$get('data_entry_usage_type')
+    this.dataEntryUsageType = dataEntryUsageType
   }
 }
 </script>
